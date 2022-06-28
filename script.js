@@ -12,7 +12,15 @@ const multiply = (a, b) => {
 
 const divide = (a, b) => {
     return a / b;
-}
+};
+
+const power = (a, b) => {
+    return a ** b;
+};
+
+const remainder = (a, b) => {
+    return a % b;
+};
 
 const operate = (operator, a, b) => {
     if(operator === "+") {
@@ -26,5 +34,11 @@ const operate = (operator, a, b) => {
     }
     if(operator === "/") {
         return divide(a, b);
+    }
+    if(operator === "**") {
+        return power(a, b);
+    }
+    if(operator === "%") {
+        return remainder(a, b);
     }
 };
