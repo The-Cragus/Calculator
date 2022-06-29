@@ -9,36 +9,40 @@
     border: 5px solid black;
     height: 360px;
     width: 275px;
+} 
+
+#buttonShell {
+    margin: 10px;
 }
 
 #rowOne {
     display: flex;
     justify-content: flex-end;
     border: 1px solid black;
+    padding: 30px;
+    margin: 10px;
 }
 
 #rowTwo {
     display: flex;
-    justify-content: space-evenly;
 }
 
 #rowThree {
     display: flex;
-    justify-content: space-evenly;
 }
 
 #rowFour {
     display: flex;
-    justify-content: space-evenly;
 }
 
 #rowFive {
-    display: flex;
-    justify-content: space-evenly;
+    display: flex; 
 }
 
 button {
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 5px;
+    padding: 15px;
+    width: 50%;
+    table-layout: fixed;
 }
+
+
