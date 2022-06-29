@@ -4,10 +4,15 @@ let displayArea = document.querySelector('.display');
 displayArea.textContent += displayValue;
 
 //Update display with button clicked
-const updateDisplay = (a) => {
-    displayValue = a;
-    displayArea.innerText = displayValue;
-};
+let updateDisplay = (a) => {
+displayValue = a;
+// Changes what is rendered in display
+displayArea.innerText = displayValue;
+}
+
+// let addToDisplay = (addToDisplay) => {
+// displayArea.innerHTML = `${addToDisplay}${a}`;
+// }
 
 const zero = document.querySelector('.zero');
 zero.addEventListener('click', () => {
@@ -60,20 +65,17 @@ updateDisplay(9);
 });
 
 const addition = document.querySelector('.addition');
-
 const subtraction = document.querySelector('.subtraction');
-
 const multiplication = document.querySelector('.multiplication');
-
 const division = document.querySelector('.division');
-
 const power = document.querySelector('.power');
-
 const remainder = document.querySelector('.remainder');
+const equals = document.querySelector('.equals');
 
 const clear = document.querySelector('.clear');
-
-const equals = document.querySelector('.equals');
+clear.addEventListener('click', () => {
+    return displayArea.innerText = 0;
+});
 
 const add = (a, b) => a + b;
 
@@ -87,23 +89,23 @@ const pow = (a, b) => a ** b;
 
 const rem = (a, b) => a % b;
 
-const operate = (operator, a, b) => {
-    if(operator === "+") {
+const operate = (a, operator, b) => {
+    if(operator === addition) {
         return add(a, b);
     }
-    if(operator === "-") {
+    if(operator === subtraction) {
         return sub(a, b);
     }
-    if(operator === "*") {
+    if(operator === multiplication) {
         return mult(a, b);
     }
-    if(operator === "/") {
+    if(operator === division) {
         return div(a, b);
     }
-    if(operator === "**") {
+    if(operator === power) {
         return pow(a, b);
     }
-    if(operator === "%") {
+    if(operator === remainder) {
         return rem(a, b);
     }
 };
