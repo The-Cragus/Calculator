@@ -2,24 +2,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 175px;
+}
+
+#innerShell {
+    border: 5px solid black;
+    height: 360px;
+    width: 275px;
 }
 
 #rowOne {
     display: flex;
+    justify-content: flex-end;
+    border: 1px solid black;
 }
 
 #rowTwo {
     display: flex;
+    justify-content: space-evenly;
 }
 
 #rowThree {
     display: flex;
+    justify-content: space-evenly;
 }
 
 #rowFour {
     display: flex;
+    justify-content: space-evenly;
 }
 
 #rowFive {
     display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
 }
