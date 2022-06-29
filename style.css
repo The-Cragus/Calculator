@@ -1,3 +1,13 @@
+button {
+    padding: 15px;
+    width: 50%;
+    table-layout: fixed;
+}
+
+.display {
+    font-size: 35px;
+}
+
 #outerShell {
     display: flex;
     justify-content: center;
@@ -13,13 +23,14 @@
 
 #buttonShell {
     margin: 10px;
+    margin-top: 15px;
 }
 
 #rowOne {
     display: flex;
     justify-content: flex-end;
     border: 1px solid black;
-    padding: 30px;
+    padding: 15px;
     margin: 10px;
 }
 
@@ -37,12 +48,6 @@
 
 #rowFive {
     display: flex; 
-}
-
-button {
-    padding: 15px;
-    width: 50%;
-    table-layout: fixed;
 }
 
 
