@@ -1,18 +1,19 @@
 //Create variable to hold display value, create variable of display area and populate.
-let displayValue = 0;
+let displayValue = "0";
 let displayArea = document.querySelector('.display');
-displayArea.textContent += displayValue;
+displayArea.textContent = displayValue;
 
-//Update display with button clicked
-let updateDisplay = (a) => {
-displayValue = a;
+// Update display with button clicked
 // Changes what is rendered in display
-displayArea.innerText = displayValue;
-}
-
-// let addToDisplay = (addToDisplay) => {
-// displayArea.innerHTML = `${addToDisplay}${a}`;
-// }
+// Clears 0 from preceding other integers
+let updateDisplay = (a) => {
+displayValue = displayArea.textContent;
+    if(displayValue.charAt(0) === "0") {
+        return displayArea.textContent = a;
+    } else {
+        displayArea.textContent += a;
+    }
+};
 
 const zero = document.querySelector('.zero');
 zero.addEventListener('click', () => {
