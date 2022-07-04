@@ -5,13 +5,13 @@ displayArea.textContent = displayValue;
 
 // Update display with button clicked
 // Changes what is rendered in display
-// Clears 0 from preceding other integers
+// Clears 0 from preceding entered integers
 let updateDisplay = (a) => {
 displayValue = displayArea.textContent;
     if(displayValue.charAt(0) === "0") {
         return displayArea.textContent = a;
     } else {
-        displayArea.textContent += a;
+        displayValue = displayArea.textContent += a;
     }
 };
 
