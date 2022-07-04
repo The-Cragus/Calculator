@@ -4,10 +4,16 @@ let displayArea = document.querySelector('.display');
 displayArea.textContent = displayValue;
 
 // Update display with button clicked
+// Sets a limit to numbers allowed in display (13);
 // Changes what is rendered in display
 // Clears 0 from preceding entered integers
 let updateDisplay = (a) => {
-displayValue = displayArea.textContent;
+    displayValue = displayArea.textContent;
+
+    if(displayValue.length >= 13) {
+        displayValue.split(' ');
+        displayValue.join(' ');
+    }
     if(displayValue.charAt(0) === "0") {
         return displayArea.textContent = a;
     } else {
