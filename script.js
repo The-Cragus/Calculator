@@ -1,7 +1,8 @@
 //Create variable to hold display value, create variable of display area and populate.
-let displayValue = "0";
+let displayValue = 0;
+let firstNumber = 0;
+let secondNumber = 0;
 let displayArea = document.querySelector('.display');
-displayArea.textContent = displayValue;
 
 // Update display with button clicked
 // Sets a limit to numbers allowed in display (13);
@@ -21,6 +22,7 @@ let updateDisplay = (a) => {
     }
 };
 
+//Event Listeners for Numbered Buttons
 const zero = document.querySelector('.zero');
 zero.addEventListener('click', () => {
 updateDisplay(0);
@@ -71,13 +73,47 @@ nine.addEventListener('click', () => {
 updateDisplay(9);
 });
 
+//Event Listeners for operator, clear, and equal buttons
 const addition = document.querySelector('.addition');
+addition.addEventListener('click', () => {
+    displayArea.textContent = "";
+    add();
+});
+
 const subtraction = document.querySelector('.subtraction');
+subtraction.addEventListener('click', () => {
+    displayArea.textContent = "";
+    sub();
+});
+
 const multiplication = document.querySelector('.multiplication');
+multiplication.addEventListener('click', () => {
+    displayArea.textContent = "";
+    mult();
+});
+
 const division = document.querySelector('.division');
+division.addEventListener('click', () => {
+    displayArea.textContent = "";
+    div();
+});
+
 const power = document.querySelector('.power');
+power.addEventListener('click', () => {
+    displayArea.textContent = "";
+    pow();
+});
+
 const remainder = document.querySelector('.remainder');
+remainder.addEventListener('click', () => {
+    displayArea.textContent = "";
+    rem();
+});
+
 const equals = document.querySelector('.equals');
+equals.addEventListener('click', () => {
+    operate();
+});
 
 const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
@@ -96,23 +132,27 @@ const pow = (a, b) => a ** b;
 
 const rem = (a, b) => a % b;
 
-const operate = (a, operator, b) => {
+const operate = (operator, a, b) => {
+
+    a = displayValue;
+    b = displayArea.textContent;
+
     if(operator === addition) {
-        return add(a, b);
+        return add(+a, +b);
     }
     if(operator === subtraction) {
-        return sub(a, b);
+        return sub(+a, +b);
     }
     if(operator === multiplication) {
-        return mult(a, b);
+        return mult(+a, +b);
     }
     if(operator === division) {
-        return div(a, b);
+        return div(+a, +b);
     }
     if(operator === power) {
-        return pow(a, b);
+        return pow(+a, +b);
     }
     if(operator === remainder) {
-        return rem(a, b);
+        return rem(+a, +b);
     }
 };
