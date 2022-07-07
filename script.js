@@ -4,6 +4,8 @@ let firstNumber = 0;
 let secondNumber = 0;
 let displayArea = document.querySelector('.display');
 
+//Make displayValue into an array? And displayArea a dif container?
+
 // Update display with button clicked
 // Sets a limit to numbers allowed in display (13);
 // Changes what is rendered in display
@@ -19,6 +21,43 @@ let updateDisplay = (a) => {
         return displayArea.textContent = a;
     } else {
         displayValue = displayArea.textContent += a;
+    }
+};
+
+const add = (a, b) => a + b;
+
+const sub = (a, b) => a - b;
+
+const mult = (a, b) => a * b;
+
+const div = (a, b) => a / b;
+
+const pow = (a, b) => a ** b;
+
+const rem = (a, b) => a % b;
+
+const operate = (operator, a, b) => {
+
+    a = firstNumber;
+    b = displayValue;
+
+    if(operator === addition) {
+        return add(+a, +b);
+    }
+    if(operator === subtraction) {
+        return sub(+a, +b);
+    }
+    if(operator === multiplication) {
+        return mult(+a, +b);
+    }
+    if(operator === division) {
+        return div(+a, +b);
+    }
+    if(operator === power) {
+        return pow(+a, +b);
+    }
+    if(operator === remainder) {
+        return rem(+a, +b);
     }
 };
 
@@ -76,8 +115,8 @@ updateDisplay(9);
 //Event Listeners for operator, clear, and equal buttons
 const addition = document.querySelector('.addition');
 addition.addEventListener('click', () => {
+    firstNumber = displayValue;
     displayArea.textContent = "";
-    add();
 });
 
 const subtraction = document.querySelector('.subtraction');
@@ -112,47 +151,10 @@ remainder.addEventListener('click', () => {
 
 const equals = document.querySelector('.equals');
 equals.addEventListener('click', () => {
-    operate();
+    displayArea.textContent = operate(addition, firstNumber, displayValue);
 });
 
 const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
-    return displayArea.innerText = 0;
+    displayArea.textContent = 0;
 });
-
-const add = (a, b) => a + b;
-
-const sub = (a, b) => a - b;
-
-const mult = (a, b) => a * b;
-
-const div = (a, b) => a / b;
-
-const pow = (a, b) => a ** b;
-
-const rem = (a, b) => a % b;
-
-const operate = (operator, a, b) => {
-
-    a = displayValue;
-    b = displayArea.textContent;
-
-    if(operator === addition) {
-        return add(+a, +b);
-    }
-    if(operator === subtraction) {
-        return sub(+a, +b);
-    }
-    if(operator === multiplication) {
-        return mult(+a, +b);
-    }
-    if(operator === division) {
-        return div(+a, +b);
-    }
-    if(operator === power) {
-        return pow(+a, +b);
-    }
-    if(operator === remainder) {
-        return rem(+a, +b);
-    }
-};
