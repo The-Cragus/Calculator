@@ -1,10 +1,9 @@
 //Create variable to hold display value, create variable of display area and populate.
 let displayValue = 0;
 let firstNumber = 0;
-let secondNumber = 0;
+// let solution = 0;
+let savedOperator = "";
 let displayArea = document.querySelector('.display');
-
-//Make displayValue into an array? And displayArea a dif container?
 
 // Update display with button clicked
 // Sets a limit to numbers allowed in display (13);
@@ -24,6 +23,7 @@ let updateDisplay = (a) => {
     }
 };
 
+//Operator functions
 const add = (a, b) => a + b;
 
 const sub = (a, b) => a - b;
@@ -41,10 +41,10 @@ const operate = (operator, a, b) => {
     a = firstNumber;
     b = displayValue;
 
-    if(operator === addition) {
+    if(savedOperator === addition) {
         return add(+a, +b);
     }
-    if(operator === subtraction) {
+    if(savedOperator === subtraction) {
         return sub(+a, +b);
     }
     if(operator === multiplication) {
@@ -117,41 +117,43 @@ const addition = document.querySelector('.addition');
 addition.addEventListener('click', () => {
     firstNumber = displayValue;
     displayArea.textContent = "";
+    savedOperator = addition;
 });
 
 const subtraction = document.querySelector('.subtraction');
 subtraction.addEventListener('click', () => {
+    firstNumber = displayValue;
     displayArea.textContent = "";
-    sub();
+    savedOperator = subtraction;
 });
 
 const multiplication = document.querySelector('.multiplication');
 multiplication.addEventListener('click', () => {
+    firstNumber = displayValue;
     displayArea.textContent = "";
-    mult();
 });
 
 const division = document.querySelector('.division');
 division.addEventListener('click', () => {
+    firstNumber = displayValue;
     displayArea.textContent = "";
-    div();
 });
 
 const power = document.querySelector('.power');
 power.addEventListener('click', () => {
+    firstNumber = displayValue;
     displayArea.textContent = "";
-    pow();
 });
 
 const remainder = document.querySelector('.remainder');
 remainder.addEventListener('click', () => {
+    firstNumber = displayValue;
     displayArea.textContent = "";
-    rem();
 });
 
 const equals = document.querySelector('.equals');
 equals.addEventListener('click', () => {
-    displayArea.textContent = operate(addition, firstNumber, displayValue);
+    displayArea.textContent = operate();
 });
 
 const clear = document.querySelector('.clear');
