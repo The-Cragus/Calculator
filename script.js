@@ -1,8 +1,8 @@
 //Create variable to hold display value, create variable of display area and populate.
 let displayValue = 0;
 let firstNumber = 0;
-// let solution = 0;
-let savedOperator = "";
+let solution = 0;
+let savedOperator = 0;
 let displayArea = document.querySelector('.display');
 
 // Update display with button clicked
@@ -36,27 +36,27 @@ const pow = (a, b) => a ** b;
 
 const rem = (a, b) => a % b;
 
-const operate = (operator, a, b) => {
+function operate(savedOperator, a, b) {
 
     a = firstNumber;
     b = displayValue;
 
-    if(savedOperator === addition) {
+    if (savedOperator === 1) {
         return add(+a, +b);
     }
-    if(savedOperator === subtraction) {
+    if (savedOperator === 2) {
         return sub(+a, +b);
     }
-    if(operator === multiplication) {
+    if (savedOperator === 3) {
         return mult(+a, +b);
     }
-    if(operator === division) {
+    if (savedOperator === 4) {
         return div(+a, +b);
     }
-    if(operator === power) {
+    if (savedOperator === 5) {
         return pow(+a, +b);
     }
-    if(operator === remainder) {
+    if (savedOperator === 6) {
         return rem(+a, +b);
     }
 };
@@ -115,45 +115,49 @@ updateDisplay(9);
 //Event Listeners for operator, clear, and equal buttons
 const addition = document.querySelector('.addition');
 addition.addEventListener('click', () => {
-    firstNumber = displayValue;
+    firstNumber = displayArea.innerText;
     displayArea.textContent = "";
-    savedOperator = addition;
+    savedOperator = 1;
 });
 
 const subtraction = document.querySelector('.subtraction');
 subtraction.addEventListener('click', () => {
-    firstNumber = displayValue;
+    firstNumber = displayArea.innerText;
     displayArea.textContent = "";
-    savedOperator = subtraction;
+    savedOperator = 2;
 });
 
 const multiplication = document.querySelector('.multiplication');
 multiplication.addEventListener('click', () => {
-    firstNumber = displayValue;
+    firstNumber = displayArea.innerText;
     displayArea.textContent = "";
+    savedOperator = 3;
 });
 
 const division = document.querySelector('.division');
 division.addEventListener('click', () => {
-    firstNumber = displayValue;
+    firstNumber = displayArea.innerText;
     displayArea.textContent = "";
+    savedOperator = 4;
 });
 
 const power = document.querySelector('.power');
 power.addEventListener('click', () => {
-    firstNumber = displayValue;
+    firstNumber = displayArea.innerText;
     displayArea.textContent = "";
+    savedOperator = 5;
 });
 
 const remainder = document.querySelector('.remainder');
 remainder.addEventListener('click', () => {
-    firstNumber = displayValue;
+    firstNumber = displayArea.innerText; 
     displayArea.textContent = "";
+    savedOperator = 6;
 });
 
 const equals = document.querySelector('.equals');
 equals.addEventListener('click', () => {
-    displayArea.textContent = operate();
+    displayArea.textContent = operate(savedOperator);
 });
 
 const clear = document.querySelector('.clear');
