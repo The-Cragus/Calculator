@@ -4,6 +4,10 @@ let firstNumber = 0;
 let solution = 0;
 let savedOperator = 0;
 let displayArea = document.querySelector('.display');
+let adding = 0;
+let subtracting = 0;
+let multiplying = 0;
+let dividing = 0;
 
 // Update display with button clicked
 // Sets a limit to numbers allowed in display (13);
@@ -42,7 +46,15 @@ function operate(savedOperator, a, b) {
     b = displayValue;
 
     if (savedOperator === 1) {
-        return add(+a, +b);
+        if (adding === 0) {
+            return add(+a, +b);
+        }
+        if (solution === 0) {
+            return solution = add(+adding, +b);
+        }
+        if (solution > 0) {
+            return solution = add(+solution, +b);
+        }
     }
     if (savedOperator === 2) {
         return sub(+a, +b);
@@ -115,6 +127,7 @@ updateDisplay(9);
 //Event Listeners for operator, clear, and equal buttons
 const addition = document.querySelector('.addition');
 addition.addEventListener('click', () => {
+    adding = add(+firstNumber, +displayValue);
     firstNumber = displayArea.innerText;
     displayArea.textContent = "";
     savedOperator = 1;
@@ -122,6 +135,7 @@ addition.addEventListener('click', () => {
 
 const subtraction = document.querySelector('.subtraction');
 subtraction.addEventListener('click', () => {
+    subtracting = sub(+firstNumber, +displayValue);
     firstNumber = displayArea.innerText;
     displayArea.textContent = "";
     savedOperator = 2;
@@ -129,6 +143,7 @@ subtraction.addEventListener('click', () => {
 
 const multiplication = document.querySelector('.multiplication');
 multiplication.addEventListener('click', () => {
+    multiplying = mult(+firstNumber, +displayValue);
     firstNumber = displayArea.innerText;
     displayArea.textContent = "";
     savedOperator = 3;
@@ -136,6 +151,7 @@ multiplication.addEventListener('click', () => {
 
 const division = document.querySelector('.division');
 division.addEventListener('click', () => {
+    dividing = div(+firstNumber, +displayValue);
     firstNumber = displayArea.innerText;
     displayArea.textContent = "";
     savedOperator = 4;
@@ -163,4 +179,11 @@ equals.addEventListener('click', () => {
 const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
     displayArea.textContent = 0;
+    displayValue = 0;
+    firstNumber = 0;
+    solution = 0;
+    adding = 0;
+    subtracting = 0;
+    multiplying = 0;
+    dividing = 0;
 });
